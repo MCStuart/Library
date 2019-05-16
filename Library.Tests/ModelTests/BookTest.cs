@@ -49,6 +49,19 @@ namespace Library.Tests
     }
 
 
+    [TestMethod]
+    public void Find_ReturnsCorrectBookFromDatabase_Book()
+    {
+      Book testBook = new Book("John", 2);
+      testBook.Save();
+
+      //Act
+      Book foundBook = Book.Find(testBook.Id);
+
+      //Assert
+      Assert.AreEqual(testBook.Title, foundBook.Title);
+      Assert.AreEqual(testBook.CopyNumber, foundBook.CopyNumber);
+    }
   }
 
   // [TestMethod]
@@ -63,11 +76,6 @@ namespace Library.Tests
   //
   // }
   //
-  // [TestMethod]
-  // public void Find_ReturnsCorrectBookFromDatabase_Book()
-  // {
-  //
-  // }
   //
   // [TestMethod]
   // public void Equals_ReturnsTrueIfTitlesAreTheSame_Book()
@@ -100,7 +108,7 @@ namespace Library.Tests
   // }
   //
   // [TestMethod]
-  // public void GetAuthors_ReturnsAllBookAuthors_AuthorList()
+  // public void GetBooks_ReturnsAllBookAuthors_AuthorList()
   // {
   //
   // }
